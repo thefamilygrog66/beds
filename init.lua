@@ -19,7 +19,7 @@ for i in ipairs(beds_list) do
 	minetest.register_node("beds:bed_bottom_"..colour, {
 		description = beddesc,
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_bottom_"..colour..".png", "default_wood.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
+		tiles = {"beds_bed_top_bottom_"..colour..".png", "beds_bed_bottom.png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png",  "beds_bed_side_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		stack_max = 1,
@@ -120,7 +120,7 @@ for i in ipairs(beds_list) do
 	
 	minetest.register_node("beds:bed_top_"..colour, {
 		drawtype = "nodebox",
-		tiles = {"beds_bed_top_top_"..colour..".png", "default_wood.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "default_wood.png",  "beds_bed_side_"..colour..".png"},
+		tiles = {"beds_bed_top_top_"..colour..".png", "beds_bed_bottom.png",  "beds_bed_side_top_r_"..colour..".png",  "beds_bed_side_top_l_"..colour..".png",  "beds_bed_side_white.png",  "beds_bed_side_"..colour..".png"},
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
@@ -145,9 +145,6 @@ for i in ipairs(beds_list) do
 		},
 	})
 	
-	minetest.register_alias("beds:bed_bottom", "beds:bed_bottom_blue")
-	minetest.register_alias("beds:bed_top", "beds:bed_top_blue")
-	minetest.register_alias("beds:bed", "beds:bed_bottom_blue")
 	minetest.register_alias("beds:bed_"..colour, "beds:bed_bottom_"..colour)
 	
 	minetest.register_craft({
@@ -194,6 +191,10 @@ for i in ipairs(beds_list) do
 		end
 	})
 end
+
+minetest.register_alias("beds:bed_bottom", "beds:bed_bottom_blue")
+minetest.register_alias("beds:bed_top", "beds:bed_top_blue")
+minetest.register_alias("beds:bed", "beds:bed_bottom_blue")
 
 beds_player_spawns = {}
 local file = io.open(minetest.get_worldpath().."/beds_player_spawns", "r")
